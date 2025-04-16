@@ -1,12 +1,12 @@
 {
   "version": 2,
   "functions": {
-    "server/**/*": {"memory": 256}
+    "api/**/*": {"memory": 256}
   },
   "rewrites": [
     {
       "source": "/api/send-email",
-      "destination": "/server/email.js"
+      "destination": "/api/email.js"
     },
     {
       "source": "/(.*)",

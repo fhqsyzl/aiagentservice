@@ -2,10 +2,10 @@
   "name": "official-website",
   "version": "1.0.0",
   "description": "Official website with email functionality",
-  "main": "server/email.js",
+  "main": "api/email.js",
   "scripts": {
-    "start": "node server/email.js",
-    "dev": "nodemon server/email.js"
+    "start": "node api/email.js",
+    "dev": "nodemon api/email.js"
   },
   "dependencies": {
     "express": "^4.18.2",
