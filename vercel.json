@@ -23,10 +23,6 @@
     {
       "source": "/js/(.+).js",
       "destination": "/static/js/$1.js"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/static/index.html"
     }
   ]
 }
