@@ -1,6 +1,13 @@
 {
   "version": 2,
+  "functions": {
+    "/server/**/*": {}
+  },
   "rewrites": [
+    {
+      "source": "/api/send-email",
+      "destination": "/server/email.js"
+    },
     {
       "source": "/(.*)",
       "destination": "/static/$1"
