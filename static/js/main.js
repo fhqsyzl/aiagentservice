@@ -136,3 +136,28 @@ function showAlert(message, type) {
     }, 300);
   }, 3000);
 }
+
+// 视口动画观察器
+function setupScrollAnimations() {
+  const animateItems = document.querySelectorAll('.animate-item');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('animate-' + entry.target.dataset.animate);
+        }, index * 250);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  animateItems.forEach(item => {
+    observer.observe(item);
+  });
+}
+
+// 初始化动画观察器
+document.addEventListener('DOMContentLoaded', setupScrollAnimations);
