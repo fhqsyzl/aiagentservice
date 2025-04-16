@@ -50,45 +50,71 @@ camera.position.z = 5;
 // 动画循环
 function animate() {
   requestAnimationFrame(animate);
-  particlesMesh.rotation.x += 0.0005;
-  particlesMesh.rotation.y += 0.0005;
+  
+  particlesMesh.rotation.x += 0.001;
+  particlesMesh.rotation.y += 0.001;
+  
   renderer.render(scene, camera);
 }
+
 animate();
+
+// 响应式调整
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// 智能客服按钮点击事件
+const customerServiceBtn = document.querySelector('#customer-service .entry-button');
+if (customerServiceBtn) {
+  customerServiceBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('.consultation-form').scrollIntoView({ behavior: 'smooth' });
+  });
+}
 
 // 表单提交处理
 const form = document.querySelector('.consultation-form form');
-const submitButton = document.querySelector('.submit-button');
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  
-  // 添加loading状态
-  submitButton.classList.add('loading');
-  submitButton.disabled = true;
-  
-  try {
-    const formData = new FormData(form);
-    const response = await fetch('/api/email', {
-      method: 'POST',
-      body: formData
-    });
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
     
-    if (response.ok) {
-      alert('提交成功！我们会尽快与您联系。');
-      form.reset();
-    } else {
-      throw new Error('提交失败');
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => data[key] = value);
+    
+    const submitButton = document.querySelector('.submit-button');
+    submitButton.disabled = true;
+    submitButton.classList.add('loading');
+    
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        showAlert('提交成功！', 'success');
+        form.reset();
+      } else {
+        showAlert(`提交失败: ${result.message}`, 'error');
+      }
+      submitButton.disabled = false;
+      submitButton.classList.remove('loading');
+    } catch (error) {
+      showAlert(`网络错误: ${error.message}`, 'error');
+      submitButton.disabled = false;
+      submitButton.classList.remove('loading');
     }
-  } catch (error) {
-    alert('提交失败，请稍后再试');
-    console.error(error);
-  } finally {
-    // 移除loading状态
-    submitButton.classList.remove('loading');
-    submitButton.disabled = false;
-  }
-});
+  });
+}
 
 // 显示消息提示
 function showAlert(message, type) {
