@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/static/index.html"
+      "destination": "/static/$1"
     }
   ]
 }
