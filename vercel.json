@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "redirects": [
-    { "source": "/js/:path*", "destination": "/static/js/:path*", "permanent": true },
-    { "source": "/css/:path*", "destination": "/static/css/:path*", "permanent": true }
+  "rewrites": [
+    { "source": "/js/(.+)", "destination": "/static/js/$1" },
+    { "source": "/css/(.+)", "destination": "/static/css/$1" }
   ]
 }
