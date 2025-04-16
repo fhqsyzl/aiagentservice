@@ -1,7 +1,5 @@
 {
   "version": 2,
   "rewrites": [
-    { "source": "/js/(.+)", "destination": "/static/js/$1" },
-    { "source": "/css/(.+)", "destination": "/static/css/$1" }
   ]
 }
