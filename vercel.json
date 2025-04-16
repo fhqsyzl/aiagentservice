@@ -2,15 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "static/**/*",
+      "src": "static/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/static/index.html"
-    },
     {
       "src": "/static/(.*)",
       "dest": "/static/$1",
@@ -27,6 +23,10 @@
     {
       "source": "/js/(.+).js",
       "destination": "/static/js/$1.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/static/index.html"
     }
   ]
 }
