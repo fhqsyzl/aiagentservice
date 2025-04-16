@@ -88,6 +88,7 @@ if (form) {
     const submitButton = document.querySelector('.submit-button');
     submitButton.disabled = true;
     submitButton.classList.add('loading');
+    submitButton.textContent = '提交中...';
     
     try {
       const response = await fetch('/api/send-email', {
@@ -108,10 +109,14 @@ if (form) {
       }
       submitButton.disabled = false;
       submitButton.classList.remove('loading');
+      submitButton.textContent = '提交咨询';
+      submitButton.textContent = '提交咨询';
     } catch (error) {
       showAlert(`网络错误: ${error.message}`, 'error');
       submitButton.disabled = false;
       submitButton.classList.remove('loading');
+      submitButton.textContent = '提交咨询';
+      submitButton.textContent = '提交咨询';
     }
   });
 }
