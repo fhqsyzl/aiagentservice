@@ -9,20 +9,15 @@ body {
 
 /* Loading动画样式 */
 .submit-button.loading {
-    position: relative;
     pointer-events: none;
 }
 
-.submit-button.loading::after {
+.submit-button.loading::before {
     content: '';
-    position: absolute;
     width: 16px;
     height: 16px;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
+    margin-right: 3px;
+    display: inline-block;
     border: 3px solid transparent;
     border-top-color: #ffffff;
     border-radius: 50%;
