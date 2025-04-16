@@ -12,11 +12,17 @@
       "dest": "/static/index.html"
     },
     {
-      "src": "/(.*).css",
-      "dest": "/static/$1.css",
+      "src": "/static/(.*)",
+      "dest": "/static/$1",
       "headers": {
         "Cache-Control": "public, max-age=31536000, immutable"
       }
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*).css",
+      "destination": "/static/css/$1.css"
     }
   ]
 }
