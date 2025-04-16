@@ -311,88 +311,40 @@ main {
     }
 }
 
-/* 响应式调整 */
-@media (max-width: 1024px) {
-    .service-section {
-        flex: 1 1 45%;
-        min-width: 250px;
-        padding: 25px 15px;
-    }
+/* 页脚样式 */
+footer {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
 }
 
-@media (max-width: 768px) {
-    body {
-        padding: 0 15px;
-    }
-    main {
-        gap: 15px;
-    }
-    .container {
-        max-width: calc(100% - 30px);
-        padding: 15px;
-        margin: 0 auto;
-    }
-    .service-section {
-        flex: 1 1 100%;
-        padding: 20px 15px;
-        margin: 15px 0;
-        min-width: calc(100% - 30px);
-    }
-    .service-section h2 {
-        font-size: 1.6rem;
-        margin-bottom: 15px;
-    }
-    .service-section p {
-        font-size: 0.9rem;
-        margin-bottom: 10px;
-    }
-    .service-section .entry-button {
-        padding: 10px 0;
-        font-size: 0.9rem;
-    }
-    .consultation-form {
-        padding: 20px;
-        margin: 30px auto;
-    }
-    .consultation-form h2 {
-        font-size: 1.8rem;
-    }
+footer ul {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-@media (max-width: 480px) {
-    body {
-        padding: 0 10px;
-    }
-    main {
-        gap: 10px;
-        padding: 20px 0;
-    }
-    .container {
-        max-width: calc(100% - 20px);
-        padding: 10px;
-    }
-    .service-section {
-        padding: 15px 10px;
-        margin: 10px 0;
-        min-width: calc(100% - 20px);
-    }
-    .service-section p {
-        margin-bottom: 8px;
-    }
-    .service-section .entry-button {
-        padding: 8px 0;
-        font-size: 0.8rem;
-    }
-    .service-section ul {
-        font-size: 0.75rem;
-    }
-    .consultation-form {
-        padding: 15px;
-        margin: 20px auto;
-    }
-    .consultation-form h2 {
-        font-size: 1.6rem;
-    }
+footer a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #00dbde;
 }
 
 /* 消息提示框样式 */
@@ -428,46 +380,127 @@ main {
     to { opacity: 1; transform: translate(-50%, -50%); }
 }
 
-/* 页脚样式 */
-footer {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    padding: 20px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-    z-index: 1;
-}
-
-footer a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer ul {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-footer a:hover {
-    color: #00dbde;
+/* 响应式调整 */
+@media (max-width: 1024px) {
+    .service-section {
+        flex: 1 1 45%;
+        min-width: 250px;
+        padding: 25px 15px;
+    }
+    .company-intro h1 {
+        font-size: 3rem;
+    }
+    .company-intro .slogan {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    .company-intro .description {
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 768px) {
-    footer {
+    body {
+        padding: 0 15px;
+    }
+    main {
+        gap: 15px;
+    }
+    .container {
+        max-width: calc(100% - 30px);
+        padding: 15px;
+        margin: 0 auto;
+    }
+    .company-intro {
+        padding: 30px 20px;
+    }
+    .company-intro h1 {
+        font-size: 2.4rem;
+    }
+    .company-intro .slogan {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+    .company-intro .description {
+        font-size: 0.85rem;
+    }
+    .service-section {
+        flex: 1 1 100%;
+        padding: 20px 15px;
+        margin: 15px 0;
+        min-width: calc(100% - 30px);
+    }
+    .service-section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    .service-section p {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    .service-section .entry-button {
+        padding: 10px 0;
+        font-size: 0.9rem;
+    }
+    .consultation-form {
+        padding: 20px;
+        margin: 30px auto;
+    }
+    .consultation-form .submit-button {
+        padding: 10px;
+        font-size: 1rem;
+    }
+    .consultation-form h2 {
+        font-size: 1.8rem;
+    }
+    footer ul {
         flex-direction: column;
-        text-align: center;
+        gap: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0 10px;
+    }
+    main {
         gap: 10px;
+        padding: 20px 0;
+    }
+    .container {
+        max-width: calc(100% - 20px);
+        padding: 10px;
+    }
+    .company-intro {
+        padding: 20px 15px;
+    }
+    .company-intro h1 {
+        font-size: 1.8rem;
+    }
+    .company-intro .slogan {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    .company-intro .description {
+        font-size: 0.8rem;
+    }
+    .service-section {
+        padding: 15px 10px;
+        margin: 10px 0;
+        min-width: calc(100% - 20px);
+    }
+    .service-section p {
+        margin-bottom: 8px;
+    }
+    .service-section .entry-button {
+        padding: 8px 0;
+        font-size: 0.8rem;
+    }
+    .service-section ul {
+        font-size: 0.85rem;
+    }
+    .consultation-form {
+        padding: 15px;
+        margin: 20px auto;
     }
 }
