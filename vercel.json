@@ -21,8 +21,12 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*).css",
+      "source": "/css/(.+).css",
       "destination": "/static/css/$1.css"
+    },
+    {
+      "source": "/js/(.+).js",
+      "destination": "/static/js/$1.js"
     }
   ]
 }
