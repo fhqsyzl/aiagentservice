@@ -1,0 +1,11 @@
+# robots.txt 文件 - 智能科技应用平台
+# 最后更新: 2024年
+
+User-agent: *
+Allow: /$
+Allow: /static/
+Disallow: /admin/
+Disallow: /api/
+
+# 网站地图
+Sitemap: https://www.aiagentservice.cn/sitemap.xml
